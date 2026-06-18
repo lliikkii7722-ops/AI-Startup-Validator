@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Startup Validator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="badge">Prototype</div>
+        <h1>AI Startup Validator</h1>
+        <p class="hero-copy">
+          Validate a startup idea in minutes with AI-style scoring, market-fit
+          checks, investor readiness signals, and a crisp action summary.
+        </p>
+        <div class="hero-actions">
+          <a href="#validator" class="primary-button">Start validation</a>
+          <button id="loadDemoBtn" class="secondary-button">Load demo data</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-value">7</span>
+            <span class="stat-label">Validation dimensions</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Risk levels</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">1</span>
+            <span class="stat-label">Instant scorecard</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-grid">
+        <section class="panel form-panel" id="validator">
+          <div class="section-heading">
+            <span class="eyebrow">Input</span>
+            <h2>Startup profile</h2>
+            <p>Describe the startup and get a structured validation report.</p>
+          </div>
+
+          <form id="validatorForm">
+            <div class="field-grid two-cols">
+              <label class="field">
+                <span>Startup name</span>
+                <input type="text" name="startupName" placeholder="Example: LedgerFlow AI" required />
+              </label>
+              <label class="field">
+                <span>Sector</span>
+                <select name="sector">
+                  <option value="saas">B2B SaaS</option>
+                  <option value="fintech">Fintech</option>
+                  <option value="healthtech">HealthTech</option>
+                  <option value="edtech">EdTech</option>
+                  <option value="marketplace">Marketplace</option>
+                  <option value="consumer">Consumer App</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Problem statement</span>
+                <textarea
+                  name="problem"
+                  rows="4"
+                  placeholder="What painful, expensive, or urgent problem does the startup solve?"
+                  required
+                ></textarea>
+              </label>
+              <label class="field">
+                <span>Solution summary</span>
+                <textarea
+                  name="solution"
+                  rows="4"
+                  placeholder="How does the product solve the problem in a way users can understand?"
+                  required
+                ></textarea>
+              </label>
+              <label class="field">
+                <span>Target customer</span>
+                <textarea
+                  name="customer"
+                  rows="3"
+                  placeholder="Who buys, who uses, and how often?"
+                  required
+                ></textarea>
+              </label>
+              <label class="field">
+                <span>Competitive advantage</span>
+                <textarea
+                  name="moat"
+                  rows="3"
+                  placeholder="What makes this defensible: data, workflow lock-in, speed, network effects, brand?"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="field-grid two-cols">
+              <label class="field">
+                <span>Business model</span>
+                <select name="businessModel">
+                  <option value="subscription">Subscription</option>
+                  <option value="usage">Usage based</option>
+                  <option value="transaction">Transaction fee</option>
+                  <option value="enterprise">Enterprise sales</option>
+                  <option value="freemium">Freemium</option>
+                  <option value="ads">Advertising</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Go-to-market</span>
+                <select name="gtm">
+                  <option value="sales">Founder-led sales</option>
+                  <option value="product-led">Product-led growth</option>
+                  <option value="partnerships">Channel partnerships</option>
+                  <option value="community">Community</option>
+                  <option value="paid">Paid acquisition</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid three-cols">
+              <label class="field">
+                <span>Market size (USD)</span>
+                <input type="number" name="marketSize" placeholder="500000000" min="0" step="1000" />
+              </label>
+              <label class="field">
+                <span>Monthly revenue (USD)</span>
+                <input type="number" name="revenue" placeholder="25000" min="0" step="100" />
+              </label>
+              <label class="field">
+                <span>Monthly growth (%)</span>
+                <input type="number" name="growthRate" placeholder="12" min="0" max="1000" step="0.1" />
+              </label>
+            </div>
+
+            <div class="field-grid three-cols">
+              <label class="field">
+                <span>Founder experience</span>
+                <select name="founderExperience">
+                  <option value="high">Deep domain + startup experience</option>
+                  <option value="medium">Some domain knowledge</option>
+                  <option value="low">First-time founders</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Product stage</span>
+                <select name="stage">
+                  <option value="idea">Idea only</option>
+                  <option value="mvp">MVP</option>
+                  <option value="beta">Beta users</option>
+                  <option value="live">Live customers</option>
+                  <option value="scaling">Scaling</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>AI depth</span>
+                <select name="aiDepth">
+                  <option value="core">AI is core product value</option>
+                  <option value="assistive">AI improves workflow</option>
+                  <option value="light">Light AI usage</option>
+                  <option value="none">No AI advantage</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field checkbox-field">
+              <input type="checkbox" name="regulatoryRisk" />
+              <span>Highly regulated market or strong compliance burden</span>
+            </label>
+
+            <div class="button-row">
+              <button type="submit" class="primary-button">Generate scorecard</button>
+              <button type="reset" class="secondary-button">Reset</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="section-heading">
+            <span class="eyebrow">Output</span>
+            <h2>Validation report</h2>
+            <p>The prototype calculates a weighted score and explains the outcome.</p>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <h3>No report yet</h3>
+            <p>Fill the form or load demo data to generate a startup validation report.</p>
+          </div>
+
+          <div id="results" class="results hidden">
+            <div class="score-overview">
+              <div class="score-ring">
+                <span id="scoreValue">0</span>
+                <small>/100</small>
+              </div>
+              <div class="score-meta">
+                <div id="scoreLabel" class="score-label">Needs work</div>
+                <p id="verdict" class="verdict"></p>
+              </div>
+            </div>
+
+            <div class="metric-grid" id="metricGrid"></div>
+
+            <div class="narrative-grid">
+              <article class="narrative-card">
+                <h3>Strengths</h3>
+                <ul id="strengthList" class="plain-list"></ul>
+              </article>
+              <article class="narrative-card">
+                <h3>Risks</h3>
+                <ul id="riskList" class="plain-list"></ul>
+              </article>
+            </div>
+
+            <article class="narrative-card">
+              <h3>Recommended next steps</h3>
+              <ul id="nextStepList" class="plain-list"></ul>
+            </article>
+
+            <article class="narrative-card">
+              <h3>Investor snapshot</h3>
+              <div id="investorSnapshot" class="snapshot"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
